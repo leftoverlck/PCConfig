@@ -1,0 +1,46 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #93a8ad;
+    color: #fff;
+  }
+  
+  .logo {
+    font-weight: bold;
+    margin-right: 20px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .navLink {
+    background: none;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration: none;
+    margin-right: 20px;
+    color: #fff; /* Якщо хочете стилізувати, як лінк */
+  }
+  .navLink:hover {
+    color: #fff; /* Залишаємо колір білим при наведенні */
+    text-decoration: none; /* Переконуємося, що підкреслення не з'явиться */
+  }
+  
+  .button {
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: transparent;
+    color: #fff;
+  }
+  

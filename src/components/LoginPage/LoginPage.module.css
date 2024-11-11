@@ -1,0 +1,34 @@
+/* Скидаємо стандартні відступи */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Стиль для сторінки логіну */
+  .loginPage {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Контейнер для всього контенту (включаючи хедер та футер) */
+  .pageWrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc; /* Сіра рамка */
+    border-radius: 12px; /* Заокруглені кути */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легка тінь */
+  }
+  
+  /* Заголовок */
+  .loginTitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
