@@ -43,6 +43,9 @@ const config = {
             '@components': path.resolve(__dirname, '../src/components'),
         },
     },
+    devServer: {
+        historyApiFallback: true, // Додаємо для коректної маршрутизації
+    },
 };
 
 module.exports = config;

@@ -1,0 +1,103 @@
+/* Скидаємо стандартні відступи */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Стиль для сторінки реєстрації */
+  .registerPage {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Контейнер для всього контенту (включаючи хедер та футер) */
+  .pageWrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc; /* Сіра рамка */
+    border-radius: 12px; /* Заокруглені кути */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легка тінь */
+  }
+  
+  /* Стилізація для заголовка */
+  .registerTitle {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Формуляр */
+  .registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Контейнер для інпутів */
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  /* Стилі для інпутів */
+  .inputLabel {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  /* Стилізація для кнопки реєстрації */
+  .registerButton {
+    background-color: #b0b0b0;
+    color: #fff;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .registerButton:hover {
+    background-color: #9a9a9a;
+  }
+  
+  /* Контейнер для флажка */
+  .rememberMeContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+  }
+  
+  .rememberMeCheckbox {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .rememberMeLabel {
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto; /* Це гарантує, що футер буде притиснутий до низу */
+  }

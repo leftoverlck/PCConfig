@@ -1,12 +1,14 @@
-import React from 'react';
-// import ReactDOM from 'react-dom';
-// import * ReactDOM from 'react-dom';
-import { createRoot } from 'react-dom/client';
+import React from "react";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-import App from './App'; // require('./App').default
+import App from "./App1";
 
-const containerElement = document.querySelector('#root');
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 
-const root = createRoot(containerElement);
-
-root.render(<App />);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
