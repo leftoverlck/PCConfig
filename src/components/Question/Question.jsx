@@ -1,10 +1,12 @@
-// Question.js
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Question.module.css";
 
 function Question({ question, options, handleAnswer, questionNumber }) {
+  const [selectedAnswer, setSelectedAnswer] = useState(""); // Додаємо стейт для вибраної відповіді
+
   const handleOptionChange = (e) => {
-    handleAnswer(questionNumber, e.target.value); // зберігаємо вибір
+    setSelectedAnswer(e.target.value); // Зберігаємо вибір в стейт
+    handleAnswer(questionNumber, e.target.value); // Передаємо вибір в батьківський компонент
   };
 
   return (
@@ -17,6 +19,7 @@ function Question({ question, options, handleAnswer, questionNumber }) {
               type="radio"
               name={`question-${questionNumber}`}
               value={option}
+              checked={selectedAnswer === option} // Встановлюємо вибір для кожного варіанту
               onChange={handleOptionChange}
             />
             <span>{option}</span>

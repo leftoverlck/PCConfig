@@ -18,6 +18,7 @@
   "author": "romabuchuk",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^11.0.1",
     "prettier": "^3.3.3",
     "prop-types": "^15.8.1",
     "react": "18.3.1",

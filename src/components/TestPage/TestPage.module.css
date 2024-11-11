@@ -51,3 +51,18 @@
 .nextButton:hover {
   background-color: #9a9a9a;
 }
+.addConfigurationButton {
+  margin-top: 50px;
+  padding: 12px 24px;
+  background-color: #758890; /* Зелений фон */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addConfigurationButton:hover {
+  background-color: #555f68; /* Темніший зелений при наведенні */
+}
