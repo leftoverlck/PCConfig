@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
-  
-  .loginButton {
+}
+
+.loginButton {
     background-color: #b0b0b0;
     color: #fff;
     padding: 12px;
@@ -15,17 +15,17 @@
     width: 100%;
     margin-top: 20px;
     transition: background-color 0.3s;
-  }
-  
-  .loginButton:hover {
+}
+
+.loginButton:hover {
     background-color: #9a9a9a;
-  }
-  
-  .registerButtonContainer {
+}
+
+.registerButtonContainer {
     margin-top: 15px;
-  }
-  
-  .registerButton {
+}
+
+.registerButton {
     background-color: #c0d8f5; /* Блідо-синій */
     color: #fff;
     padding: 12px;
@@ -35,9 +35,8 @@
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s;
-  }
-  
-  .registerButton:hover {
+}
+
+.registerButton:hover {
     background-color: #9ab9d9; /* Трохи темніший блідо-синій */
-  }
-  
+}

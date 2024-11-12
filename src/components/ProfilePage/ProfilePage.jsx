@@ -1,98 +1,116 @@
-import React from "react";
-import { useAuth } from "../../AuthContext"; // Імпортуємо хук для доступу до автентифікації
-import { useNavigate } from "react-router-dom"; // Хук для навігації
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import styles from "./ProfilePage.module.css";
-import "../../App1.module.css";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../AuthContext';
+import { db } from '../../firebaseConfig';
+import { collection, query, getDocs } from 'firebase/firestore';
+import { deleteConfiguration } from '../../ffirebase/deleteConfiguration';
+import styles from './ProfilePage.module.css';
+import ProfilePage1 from '../ProfilePage1/ProfilePage1';
 
 const ProfilePage = () => {
-  const { isAuthenticated } = useAuth(); // Отримуємо статус автентифікації
-  const navigate = useNavigate(); // Хук для навігації
+    const { user } = useAuth();
+    const navigate = useNavigate();
+    const [configurations, setConfigurations] = useState([]);
 
-  // Якщо користувач не авторизований, перенаправляємо на сторінку логіну
-  if (!isAuthenticated) {
-    navigate("/login");
-    return null; // Не рендеримо сторінку
-  }
+    useEffect(() => {
+        if (!user) {
+            navigate('/login');
+        }
+    }, [user, navigate]);
 
-  const assemblies = [
-    {
-      id: 1,
-      name: "Збірка 1",
-      totalPrice: "40 000",
-      specs: [
-        "Живлення (PSU): 750W Platinum Certified",
-        "Оперативна пам'ять (RAM): 32 GB DDR4",
-        "Відеокарта (GPU): NVIDIA GeForce RTX 4070",
-        "Процесор (CPU): Intel Core i7-13700K",
-        "Тип зберігання (Storage): SSD 2 TB NVMe",
-        "Материнська плата: ASUS ROG Strix Z690-E Gaming",
-      ],
-    },
-    {
-      id: 2,
-      name: "Збірка 2",
-      totalPrice: "40 000",
-      specs: [
-        "Живлення (PSU): 750W Platinum Certified",
-        "Оперативна пам'ять (RAM): 32 GB DDR4",
-        "Відеокарта (GPU): NVIDIA GeForce RTX 4070",
-        "Процесор (CPU): Intel Core i7-13700K",
-        "Тип зберігання (Storage): SSD 2 TB NVMe",
-        "Материнська плата: ASUS ROG Strix Z690-E Gaming",
-      ],
-    },
-    {
-      id: 3,
-      name: "Збірка 3",
-      totalPrice: "40 000",
-      specs: [
-        "Живлення (PSU): 750W Platinum Certified",
-        "Оперативна пам'ять (RAM): 32 GB DDR4",
-        "Відеокарта (GPU): NVIDIA GeForce RTX 4070",
-        "Процесор (CPU): Intel Core i7-13700K",
-        "Тип зберігання (Storage): SSD 2 TB NVMe",
-        "Материнська плата: ASUS ROG Strix Z690-E Gaming",
-      ],
-    },
-  ];
+    const fetchConfigurations = async () => {
+        if (user) {
+            try {
+                const userConfigRef = collection(db, 'user_configurations', user.uid, 'configurations');
+                const q = query(userConfigRef);
+                const querySnapshot = await getDocs(q);
 
-  const handleNewAssemblyClick = () => {
-    navigate("/assembly"); // Перехід на сторінку /assembly
-  };
+                if (querySnapshot.empty) {
+                    console.log('Конфігурації не знайдені');
+                } else {
+                    const configData = querySnapshot.docs.map((doc) => ({ ...doc.data().configuration, id: doc.id }));
+                    const validAssemblies = configData.filter((config) => {
+                        return (
+                            config &&
+                            config.totalPrice &&
+                            config.cpu &&
+                            config.gpu &&
+                            config.motherboard &&
+                            config.psu &&
+                            config.ram &&
+                            config.storage
+                        );
+                    });
+                    setConfigurations(validAssemblies);
+                }
+            } catch (error) {
+                console.error('Помилка при завантаженні збірок:', error);
+            }
+        }
+    };
 
-  return (
-    <div className={styles.profilePage}>
-      <main className={styles.mainContent}>
-        <h1 className={styles.title}>Мій профіль</h1>
-        {/* Додаємо обробник кліку для кнопки */}
-        <button
-          className={styles.newAssemblyButton}
-          onClick={handleNewAssemblyClick}
-        >
-          Нова збірка
-        </button>
-        <div className={styles.assembliesList}>
-          {assemblies.map((assembly) => (
-            <div key={assembly.id} className={styles.assemblyItem}>
-              <h2 className={styles.assemblyTitle}>{assembly.name}</h2>
-              <div className={styles.specs}>
-                {assembly.specs.map((spec, index) => (
-                  <p key={index} className={styles.spec}>
-                    {spec}
-                  </p>
-                ))}
-              </div>
-              <p className={styles.totalPrice}>
-                Загальна вартість: {assembly.totalPrice} грн
-              </p>
-            </div>
-          ))}
+    useEffect(() => {
+        if (user) {
+            fetchConfigurations();
+        }
+    }, [user]);
+
+    return (
+        <div className={styles.profilePage}>
+            <main className={styles.mainContent}>
+                <h1 className={styles.title}>Мій профіль</h1>
+                <button className={styles.newAssemblyButton} onClick={() => navigate('/assembly')}>
+                    Нова збірка
+                </button>
+
+                {configurations.length > 0 ? (
+                    <div className={styles.assembliesList}>
+                        <h2>Мої збірки з тесту</h2>
+                        {configurations.map((config, index) => (
+                            <div key={config.id} className={styles.assemblyItem}>
+                                <h3 className={styles.assemblyTitle}>Збірка #{index + 1}</h3>
+                                <div className={styles.specs}>
+                                    <p className={styles.spec}>
+                                        <strong>Процесор:</strong> {config.cpu}
+                                    </p>
+                                    <p className={styles.spec}>
+                                        <strong>Відеокарта:</strong> {config.gpu}
+                                    </p>
+                                    <p className={styles.spec}>
+                                        <strong>Материнська плата:</strong> {config.motherboard}
+                                    </p>
+                                    <p className={styles.spec}>
+                                        <strong>Блок живлення:</strong> {config.psu}
+                                    </p>
+                                    <p className={styles.spec}>
+                                        <strong>Оперативна пам'ять:</strong> {config.ram}
+                                    </p>
+                                    <p className={styles.spec}>
+                                        <strong>Сховище:</strong> {config.storage}
+                                    </p>
+                                </div>
+                                <p className={styles.totalPrice}>
+                                    <strong>Ціна: </strong>
+                                    {config.totalPrice.replace(/\s/g, '').replace(/грн$/, '')} грн
+                                </p>
+                                <button
+                                    className={styles.deleteButton}
+                                    onClick={() =>
+                                        deleteConfiguration(user, config.id, setConfigurations, configurations)
+                                    }
+                                >
+                                    Видалити
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>Збірки не знайдені.</p>
+                )}
+                <ProfilePage1 />
+            </main>
         </div>
-      </main>
-    </div>
-  );
+    );
 };
 
 export default ProfilePage;

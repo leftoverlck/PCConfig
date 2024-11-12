@@ -1,24 +1,23 @@
 /* Question.module.css */
 .questionSection {
     text-align: left;
-  }
-  
-  .questionTitle {
+}
+
+.questionTitle {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 15px;
-  }
-  
-  .options {
+}
+
+.options {
     display: flex;
     flex-direction: column;
     gap: 15px;
-  }
-  
-  .option {
+}
+
+.option {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 1rem;
-  }
-  
+}

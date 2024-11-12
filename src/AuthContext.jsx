@@ -1,21 +1,45 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 
 const AuthContext = createContext();
 
-
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true); // Початковий стан авторизації
+    const [user, setUser] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [error, setError] = useState(null);
+    const auth = getAuth();
 
-  const login = () => setIsAuthenticated(true);
-  const logout = () => setIsAuthenticated(false);
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                setUser(currentUser);
+                setIsAuthenticated(true);
+            } else {
+                setUser(null);
+                setIsAuthenticated(false);
+            }
+        });
+        return unsubscribe;
+    }, [auth]);
 
-  return (
-    <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+    const loginUser = async (email, password) => {
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            setError(null);
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
+    const logout = () => {
+        auth.signOut();
+    };
+
+    return (
+        <AuthContext.Provider value={{ user, isAuthenticated, loginUser, logout, error }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext); // Хук для доступу до контексту

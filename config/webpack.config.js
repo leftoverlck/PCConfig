@@ -17,7 +17,7 @@ const config = {
                     to: path.resolve(__dirname, '../dist', 'assets'),
                 },
             ],
-        }),,
+        }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../templates/index.html'),
         }),
@@ -44,7 +44,7 @@ const config = {
         },
     },
     devServer: {
-        historyApiFallback: true, // Додаємо для коректної маршрутизації
+        historyApiFallback: true,
     },
 };
 
