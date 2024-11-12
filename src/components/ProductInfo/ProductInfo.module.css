@@ -1,36 +1,49 @@
+/* Оновлені стилі для ProductInfo.module.css */
+
 .productInfo {
-    padding: 15px;
-    border-top: 1px solid #ddd;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #444;
     margin-top: 20px;
-  }
-  
-  .productTitle {
+}
+
+.selectedComponents {
+    display: flex;
+    flex-direction: column; /* Вертикальне розташування компонентів */
+    gap: 20px; /* Відступи між компонентами */
+    border-top: 1px solid #ddd; /* Верхня лінія для першого компонента */
+}
+
+.component {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-top: 1px solid #ddd; /* Верхня лінія для кожного компонента */
+    border-bottom: 1px solid #ddd; /* Нижня лінія для кожного компонента */
+    text-align: left; /* Текст вирівняний ліворуч */
+}
+
+.component:last-child {
+    margin-bottom: 30px; /* Додатковий нижній відступ для останнього компонента */
+}
+
+.component h3 {
     font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .description {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .specs {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .image {
-    width: 150px;
-    margin: 10px 0;
-  }
-  
-  .prices {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.component p {
     font-size: 16px;
+    color: #666;
+    margin: 4px 0;
+}
+
+.price {
     font-weight: bold;
-  }
-  
-  .priceTitle {
-    font-size: 18px;
-    margin-bottom: 5px;
-  }
-  
+    color: #4caf50;
+}
+
+.noPrice {
+    color: #999;
+    font-style: italic;
+}

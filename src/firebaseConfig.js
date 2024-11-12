@@ -1,10 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
-import React, { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-
-import App from './App1';
 
 const firebaseConfig = {
     apiKey: 'AIzaSyC6Ai-ZWIJwQ-keNfjYVLYZiS3xR5GbOSo',
@@ -17,15 +13,13 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+if (app) {
+    console.log('Firebase ініціалізовано успішно');
+} else {
+    console.log('Помилка ініціалізації Firebase');
+}
 
 const database = getFirestore(app);
 const auth = getAuth(app);
 
-const rootElement = document.querySelector('#root');
-const root = createRoot(rootElement);
-
-root.render(
-    <StrictMode>
-        <App />
-    </StrictMode>,
-);
+export { auth, database as db };

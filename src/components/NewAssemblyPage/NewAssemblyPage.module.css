@@ -1,61 +1,62 @@
 .newAssemblyPage {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #888888;
-  }
-  /* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-  .mainContent {
+    min-height: 100vh; /* Щоб контейнер сторінки займав всю висоту вікна */
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.mainContent {
     max-width: 800px;
     margin: 0 auto;
-  }
-  
-  .title {
+}
+
+.title {
     font-size: 35px;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 20px;
-  }
-  
-  .form {
+}
+
+.form {
     margin-bottom: 20px;
-  }
-  
-  .label {
+}
+
+.label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
-  }
-  
-  .input,
-  .textarea {
+}
+
+.input,
+.textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
     border-radius: 4px;
     border: 1px solid #ddd;
-  }
-  
-  .selects {
+}
+
+.selects {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
-  }
-  
-  .select {
+}
+
+.select {
     flex: 1 1 30%;
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #ddd;
-  }
-  
-  .buttons {
+}
+
+.buttons {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-  }
-  
-  .button {
+}
+
+.button {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -63,5 +64,4 @@
     background-color: #8294a0;
     color: white;
     border-radius: 4px;
-  }
-  
+}

@@ -1,13 +1,14 @@
-
 .footer {
     text-align: center;
     padding: 20px;
     background-color: #93a8ad;
     color: #fff;
     margin-top: auto; /* Футер буде на дні сторінки */
-  }
-  
-  .footer p {
+}
+
+.footer p {
     font-weight: bold;
-  }
-  
+}
+main {
+    flex: 1; /* Гарантує, що контент буде заповнювати доступний простір */
+}

@@ -1,61 +1,56 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import styles from "./Header.module.css";
-import { useAuth } from "../../AuthContext"; // Імпортуємо хук для доступу до контексту
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import styles from './Header.module.css';
+import { useAuth } from '../../AuthContext';
 
 function Header() {
-  const { isAuthenticated, logout } = useAuth(); // Отримуємо автентифікацію та logout з контексту
-  const navigate = useNavigate(); // Хук для навігації
+    const { isAuthenticated, user, logout } = useAuth();
+    const navigate = useNavigate();
 
-  const handleTestButtonClick = () => {
-    if (isAuthenticated) {
-      // Якщо користувач увійшов, перенаправляємо на сторінку тесту
-      navigate("/test");
-    } else {
-      // Якщо не увійшов, перенаправляємо на сторінку логіну
-      navigate("/login");
-    }
-  };
+    const handleTestButtonClick = () => {
+        if (isAuthenticated) {
+            navigate('/test');
+        } else {
+            navigate('/login');
+        }
+    };
 
-  const handleLogout = () => {
-    logout(); // Вихід з облікового запису
-    navigate("/login"); // Перенаправлення на сторінку входу
-  };
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    };
 
-  return (
-    <header className={styles.header}>
-      {/* Логотип, який веде на головну сторінку */}
-      <Link to="/" className={styles.logo}>
-        PCCONFIG
-      </Link>
-      <nav>
-        <a href="#features" className={styles.navLink}>
-          Про нас
-        </a>
-
-        {/* Умовно рендеримо лінк */}
-        {isAuthenticated ? (
-          <>
-            <Link to="/profile" className={styles.navLink}>
-              Мій профіль
+    return (
+        <header className={styles.header}>
+            <Link to="/" className={styles.logo}>
+                PCCONFIG
             </Link>
-            <button onClick={handleLogout} className={styles.navLink}>
-              Вийти
-            </button>
-          </>
-        ) : (
-          <Link to="/login" className={styles.navLink}>
-            Увійти
-          </Link>
-        )}
+            <nav>
+                <a href="#features" className={styles.navLink}>
+                    Про нас
+                </a>
 
-        {/* Кнопка, яка перенаправляє в залежності від статусу авторизації */}
-        <button className={styles.button} onClick={handleTestButtonClick}>
-          Пройти тест
-        </button>
-      </nav>
-    </header>
-  );
+                {isAuthenticated ? (
+                    <>
+                        <Link to="/profile" className={styles.navLink}>
+                            Мій профіль {user?.email ? `(${user.email})` : ''}
+                        </Link>
+                        <button onClick={handleLogout} className={styles.navLink}>
+                            Вийти
+                        </button>
+                    </>
+                ) : (
+                    <Link to="/login" className={styles.navLink}>
+                        Увійти
+                    </Link>
+                )}
+
+                <button className={styles.button} onClick={handleTestButtonClick}>
+                    Пройти тест
+                </button>
+            </nav>
+        </header>
+    );
 }
 
 export default Header;
