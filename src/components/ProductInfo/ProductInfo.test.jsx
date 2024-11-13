@@ -26,18 +26,16 @@ describe('ProductInfo', () => {
         render(<ProductInfo selectedComponents={selectedComponents} />);
 
         expect(screen.getByText(/Вибрані компоненти/i)).toBeInTheDocument();
-
-        // Перевірка процесора
         expect(screen.getAllByText(/Processor/i)[0]).toBeInTheDocument();
         expect(screen.getByText(/Processor 1/i)).toBeInTheDocument();
         expect(screen.getByText(/Store 1: \$200/i)).toBeInTheDocument();
 
-        // Перевірка RAM
+        
         expect(screen.getAllByText(/Ram/i)[0]).toBeInTheDocument();
         expect(screen.getByText(/RAM 1/i)).toBeInTheDocument();
         expect(screen.getByText(/Store 2: \$100/i)).toBeInTheDocument();
 
-        // Перевірка GPU
+        
         expect(screen.getAllByText(/Gpu/i)[0]).toBeInTheDocument();
         expect(screen.getByText(/GPU 1/i)).toBeInTheDocument();
         expect(screen.getByText(/Store 3: \$300/i)).toBeInTheDocument();
