@@ -1,5 +1,5 @@
 import { collection, addDoc } from 'firebase/firestore';
-import { db } from './firebase';
+import { db } from '../firebaseConfig';
 
 const addConfigurationToDatabase = async (configuration) => {
     try {
