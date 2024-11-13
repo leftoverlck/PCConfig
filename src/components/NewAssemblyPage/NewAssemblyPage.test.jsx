@@ -6,7 +6,6 @@ import NewAssemblyPage from './NewAssemblyPage';
 import { useAuth } from '../../AuthContext';
 import { useSaveAssembly } from '../../hooks/useSaveAssembly';
 
-
 jest.mock('../../AuthContext', () => ({
     useAuth: jest.fn(),
 }));
@@ -33,7 +32,7 @@ describe('NewAssemblyPage', () => {
         render(
             <BrowserRouter>
                 <NewAssemblyPage />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         expect(screen.getByText(/Нова збірка/i)).toBeInTheDocument();
@@ -54,7 +53,7 @@ describe('NewAssemblyPage', () => {
         render(
             <BrowserRouter>
                 <NewAssemblyPage />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         fireEvent.change(screen.getByText(/Процесор/i), { target: { value: 'test-processor' } });

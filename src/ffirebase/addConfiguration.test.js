@@ -17,8 +17,6 @@ describe('addConfiguratuion', () => {
         jest.clearAllMocks();
     });
 
-   
-
     test('обробляє помилки при додаванні конфігурації', async () => {
         const mockConfiguration = {
             cpu: 'Intel i7',
@@ -29,7 +27,7 @@ describe('addConfiguratuion', () => {
             storage: '512GB SSD',
             totalPrice: '3000 грн',
         };
-        
+
         const mockError = new Error('Помилка при додаванні конфігурації');
         addDoc.mockRejectedValueOnce(mockError);
 

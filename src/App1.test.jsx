@@ -32,7 +32,7 @@ describe('App', () => {
         render(
             <AuthProvider>
                 <App /> {/* Відсутній додатковий BrowserRouter */}
-            </AuthProvider>
+            </AuthProvider>,
         );
 
         expect(screen.getByText(/Header Mock/i)).toBeInTheDocument();

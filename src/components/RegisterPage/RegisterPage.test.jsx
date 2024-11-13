@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 jest.mock('firebase/auth', () => ({
     createUserWithEmailAndPassword: jest.fn(),
     signInWithEmailAndPassword: jest.fn(),
-    getAuth: jest.fn(() => ({})),  
+    getAuth: jest.fn(() => ({})),
 }));
 
 jest.mock('react-router-dom', () => ({

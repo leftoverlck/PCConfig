@@ -26,7 +26,7 @@ describe('InputField', () => {
         render(<InputField {...defaultProps} />);
 
         fireEvent.change(screen.getByPlaceholderText(/Enter text/i), {
-            target: { value: 'new value' }
+            target: { value: 'new value' },
         });
 
         expect(mockOnChange).toHaveBeenCalledTimes(1);

@@ -5,11 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import Header from './Header';
 import { useAuth } from '../../AuthContext';
 
-
 jest.mock('../../AuthContext', () => ({
     useAuth: jest.fn(),
 }));
-
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -32,7 +30,7 @@ describe('Header', () => {
         render(
             <BrowserRouter>
                 <Header />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         expect(screen.getByText(/PCCONFIG/i)).toBeInTheDocument();
@@ -51,7 +49,7 @@ describe('Header', () => {
         render(
             <BrowserRouter>
                 <Header />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         expect(screen.getByText(/PCCONFIG/i)).toBeInTheDocument();
@@ -71,7 +69,7 @@ describe('Header', () => {
         render(
             <BrowserRouter>
                 <Header />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         fireEvent.click(screen.getByText(/Пройти тест/i));
@@ -88,7 +86,7 @@ describe('Header', () => {
         render(
             <BrowserRouter>
                 <Header />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         fireEvent.click(screen.getByText(/Пройти тест/i));
@@ -107,7 +105,7 @@ describe('Header', () => {
         render(
             <BrowserRouter>
                 <Header />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         fireEvent.click(screen.getByText(/Вийти/i));

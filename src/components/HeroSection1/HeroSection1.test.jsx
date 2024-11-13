@@ -5,11 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import HeroSection from './HeroSection';
 import { useAuth } from '../../AuthContext';
 
-
 jest.mock('../../AuthContext', () => ({
     useAuth: jest.fn(),
 }));
-
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -30,7 +28,7 @@ describe('HeroSection', () => {
         render(
             <BrowserRouter>
                 <HeroSection />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         expect(screen.getByText(/Збірка комп'ютера без зайвих зусиль/i)).toBeInTheDocument();
@@ -46,7 +44,7 @@ describe('HeroSection', () => {
         render(
             <BrowserRouter>
                 <HeroSection />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         fireEvent.click(screen.getByText(/Почати збірку/i));
@@ -61,7 +59,7 @@ describe('HeroSection', () => {
         render(
             <BrowserRouter>
                 <HeroSection />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         fireEvent.click(screen.getByText(/Почати збірку/i));
