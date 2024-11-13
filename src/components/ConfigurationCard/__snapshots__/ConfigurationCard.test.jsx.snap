@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfigurationCard should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="configurationCard"
+  >
+    <h2
+      class="configurationTitle"
+    >
+      Ваша конфігурація
+    </h2>
+    <div
+      class="specs"
+    >
+      <p>
+        <strong>
+          Живлення (PSU):
+        </strong>
+         750W
+      </p>
+      <p>
+        <strong>
+          Оперативна пам'ять (RAM):
+        </strong>
+         16GB
+      </p>
+      <p>
+        <strong>
+          Відеокарта (GPU):
+        </strong>
+         NVIDIA RTX 3080
+      </p>
+      <p>
+        <strong>
+          Процесор (CPU):
+        </strong>
+         Intel i9-11900K
+      </p>
+      <p>
+        <strong>
+          Тип зберігання (Storage):
+        </strong>
+         1TB SSD
+      </p>
+      <p>
+        <strong>
+          Материнська плата:
+        </strong>
+         ASUS ROG Strix Z590-E
+      </p>
+    </div>
+    <p
+      class="totalPrice"
+    >
+      <strong>
+        Загальна вартість:
+      </strong>
+       2500$ 
+    </p>
+  </div>
+</DocumentFragment>
+`;
