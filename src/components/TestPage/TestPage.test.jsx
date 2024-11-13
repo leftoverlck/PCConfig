@@ -9,13 +9,11 @@ describe('TestPage', () => {
         render(
             <MemoryRouter>
                 <TestPage />
-            </MemoryRouter>
+            </MemoryRouter>,
         );
 
-  
-        const question = screen.getByText('1. Для яких цілей ви плануєте використовувати комп\'ютер?');
+        const question = screen.getByText("1. Для яких цілей ви плануєте використовувати комп'ютер?");
 
-      
         expect(question).toBeInTheDocument();
     });
 });

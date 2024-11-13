@@ -7,7 +7,6 @@ describe('Footer', () => {
     test('рендерить компонент з правильним текстом', () => {
         render(<Footer />);
         
-        // Перевіряємо наявність тексту PCCONFIG
         expect(screen.getByText(/PCCONFIG/i)).toBeInTheDocument();
     });
 });

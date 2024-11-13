@@ -111,16 +111,16 @@ export const prices = {
         { store: 'MOYO', price: '5,450 грн' },
     ],
     'ASUS TUF B450M-PLUS': [
-    { store: 'Rozetka', price: '2,200 грн' },
-    { store: 'Comfy', price: '2,400 грн' },
-    { store: 'MOYO', price: '2,300 грн' },
-],
+        { store: 'Rozetka', price: '2,200 грн' },
+        { store: 'Comfy', price: '2,400 грн' },
+        { store: 'MOYO', price: '2,300 грн' },
+    ],
 
-'ASRock Z590 Phantom Gaming': [
-    { store: 'Rozetka', price: '5,500 грн' },
-    { store: 'Comfy', price: '5,700 грн' },
-    { store: 'MOYO', price: '5,600 грн' },
-],
+    'ASRock Z590 Phantom Gaming': [
+        { store: 'Rozetka', price: '5,500 грн' },
+        { store: 'Comfy', price: '5,700 грн' },
+        { store: 'MOYO', price: '5,600 грн' },
+    ],
 
     'Gigabyte B550 AORUS ELITE': [
         { store: 'Rozetka', price: '6,000 грн' },
@@ -128,22 +128,22 @@ export const prices = {
         { store: 'MOYO', price: '6,100 грн' },
     ],
     '650W': [
-    { store: 'Rozetka', price: '2,200 грн' },
-    { store: 'Comfy', price: '2,400 грн' },
-    { store: 'MOYO', price: '2,300 грн' },
-],
+        { store: 'Rozetka', price: '2,200 грн' },
+        { store: 'Comfy', price: '2,400 грн' },
+        { store: 'MOYO', price: '2,300 грн' },
+    ],
 
-'550W': [
-    { store: 'Rozetka', price: '1,800 грн' },
-    { store: 'Comfy', price: '2,000 грн' },
-    { store: 'MOYO', price: '1,900 грн' },
-],
+    '550W': [
+        { store: 'Rozetka', price: '1,800 грн' },
+        { store: 'Comfy', price: '2,000 грн' },
+        { store: 'MOYO', price: '1,900 грн' },
+    ],
 
-'450W': [
-    { store: 'Rozetka', price: '1,400 грн' },
-    { store: 'Comfy', price: '1,600 грн' },
-    { store: 'MOYO', price: '1,500 грн' },
-],
+    '450W': [
+        { store: 'Rozetka', price: '1,400 грн' },
+        { store: 'Comfy', price: '1,600 грн' },
+        { store: 'MOYO', price: '1,500 грн' },
+    ],
 
     '850W': [
         { store: 'Rozetka', price: '3,000 грн' },
@@ -155,5 +155,4 @@ export const prices = {
         { store: 'Comfy', price: '2,700 грн' },
         { store: 'MOYO', price: '2,600 грн' },
     ],
-    
 };

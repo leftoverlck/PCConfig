@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import LoginPage from './LoginPage';
 import { useAuth } from '../../AuthContext';
 
-
 jest.mock('../../AuthContext', () => ({
     useAuth: jest.fn(),
 }));
@@ -24,7 +23,7 @@ describe('LoginPage', () => {
         render(
             <BrowserRouter>
                 <LoginPage />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();

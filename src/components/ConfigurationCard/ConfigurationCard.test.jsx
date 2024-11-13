@@ -16,7 +16,7 @@ describe('ConfigurationCard', () => {
 
     test('renders the component with given configuration', () => {
         render(<ConfigurationCard configuration={mockConfiguration} />);
-        
+
         expect(screen.getByRole('heading', { name: /Ваша конфігурація/i })).toBeInTheDocument();
         expect(screen.getByText(/750W/i)).toBeInTheDocument();
         expect(screen.getByText(/16GB/i)).toBeInTheDocument();

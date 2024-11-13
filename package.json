@@ -18,7 +18,7 @@
         "prepare": "husky",
         "test1": "nyc --reporter=html --reporter=text npm test"
     },
-    "author": "romabuchuk",
+    "author": "yuliacheketa",
     "license": "ISC",
     "dependencies": {
         "firebase": "^11.0.1",

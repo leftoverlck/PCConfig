@@ -15,7 +15,7 @@ describe('Question', () => {
         render(<Question {...questionProps} />);
 
         expect(screen.getByText(/Яке улюблене кольор?/i)).toBeInTheDocument();
-        questionProps.options.forEach(option => {
+        questionProps.options.forEach((option) => {
             expect(screen.getByLabelText(option)).toBeInTheDocument();
         });
     });

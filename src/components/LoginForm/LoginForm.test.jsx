@@ -5,11 +5,9 @@ import { BrowserRouter } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import { useAuth } from '../../AuthContext';
 
-
 jest.mock('../../AuthContext', () => ({
     useAuth: jest.fn(),
 }));
-
 
 const mockNavigate = jest.fn();
 jest.mock('react-router-dom', () => ({
@@ -31,7 +29,7 @@ describe('LoginForm', () => {
         render(
             <BrowserRouter>
                 <LoginForm />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
@@ -50,7 +48,7 @@ describe('LoginForm', () => {
         render(
             <BrowserRouter>
                 <LoginForm />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'test@example.com' } });
@@ -58,7 +56,7 @@ describe('LoginForm', () => {
         fireEvent.click(screen.getByText(/Вхід/i));
 
         expect(mockLoginUser).toHaveBeenCalledWith('test@example.com', 'password');
-        await screen.findByText(/Реєстрація/i); 
+        await screen.findByText(/Реєстрація/i);
         expect(mockNavigate).toHaveBeenCalledWith('/profile');
     });
 
@@ -71,7 +69,7 @@ describe('LoginForm', () => {
         render(
             <BrowserRouter>
                 <LoginForm />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         fireEvent.click(screen.getByText(/Реєстрація/i));

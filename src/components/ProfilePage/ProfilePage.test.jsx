@@ -26,7 +26,7 @@ describe('ProfilePage', () => {
         render(
             <BrowserRouter>
                 <ProfilePage />
-            </BrowserRouter>
+            </BrowserRouter>,
         );
 
         expect(screen.getByText(/Мій профіль/i)).toBeInTheDocument();

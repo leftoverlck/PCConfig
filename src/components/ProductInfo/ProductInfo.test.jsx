@@ -30,12 +30,10 @@ describe('ProductInfo', () => {
         expect(screen.getByText(/Processor 1/i)).toBeInTheDocument();
         expect(screen.getByText(/Store 1: \$200/i)).toBeInTheDocument();
 
-        
         expect(screen.getAllByText(/Ram/i)[0]).toBeInTheDocument();
         expect(screen.getByText(/RAM 1/i)).toBeInTheDocument();
         expect(screen.getByText(/Store 2: \$100/i)).toBeInTheDocument();
 
-        
         expect(screen.getAllByText(/Gpu/i)[0]).toBeInTheDocument();
         expect(screen.getByText(/GPU 1/i)).toBeInTheDocument();
         expect(screen.getByText(/Store 3: \$300/i)).toBeInTheDocument();

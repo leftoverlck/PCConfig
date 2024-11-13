@@ -15,7 +15,7 @@ jest.mock('firebase/firestore', () => ({
     getDocs: jest.fn(),
     doc: jest.fn(),
     deleteDoc: jest.fn(),
-    getFirestore: jest.fn(() => ({})), 
+    getFirestore: jest.fn(() => ({})),
 }));
 
 describe('ProfilePage1', () => {

@@ -1,10 +1,9 @@
 module.exports = {
     testEnvironment: 'jsdom', // Додаємо це для підтримки DOM
     moduleNameMapper: {
-      '\\.module\\.css$': 'identity-obj-proxy',
+        '\\.module\\.css$': 'identity-obj-proxy',
     },
     transform: {
-      '^.+\\.jsx?$': 'babel-jest',
+        '^.+\\.jsx?$': 'babel-jest',
     },
-  };
-  
+};
